@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "elasticsearch-logstash-kibana"
+version = "0.1.0"
+description = ""
+authors = ["olahsymbo <olahsymbo@gmail.com>"]
+packages = [{ include = "elasticsearch_logstash_kibana", from = "src"}]
+include = [{ path = "src/bridget/py.typed"}]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.9"
+fastapi = "^0.105.0"
+uvicorn = "^0.25.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
