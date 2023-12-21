@@ -57,21 +57,3 @@ jobs:
 
       - name: Test with Pytest
         run: task test
-  
-  Release:
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, 'chore(release):')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8.17
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Semantic Release
-        run: |
-          pip install python-semantic-release
-          git config user.name olahsymbo
-          git config user.email olahsymbo@github.com
-          semantic-release publish
-      
