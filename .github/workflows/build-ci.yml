@@ -48,7 +48,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Lint with task
-        run: tast format
+        run: task format
 
       - name: Test with Pytest
         run: task test
