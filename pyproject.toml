@@ -11,8 +11,81 @@ readme = "README.md"
 python = "3.9"
 fastapi = "^0.105.0"
 uvicorn = "^0.25.0"
+isort = "^5.13.2"
+flake8 = "^6.1.0"
+mypy = "^1.7.1"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+files = ['rdflib', 'test', 'devtools', 'examples']
+python_version = "3.8"
+warn_unused_configs = true
+ignore_missing_imports = true
+disallow_subclassing_any = false
+warn_unreachable = true
+warn_unused_ignores = true
+no_implicit_optional = false
+implicit_reexport = false
+
+[tool.isort]
+profile = "black"
+py_version = 37
+line_length = 88
+src_paths= ["rdflib", "test", "devtools", "examples"]
+supported_extensions = ["pyw", "pyi", "py"]
+skip = [
+    '.eggs',         # exclude a few common directories in the
+    '.git',          # root of the project
+    '.hg',
+    '.mypy_cache',
+    '.pytest_cache',
+    '.tox',
+    '.venv',
+    '.var',
+    '.github',
+    '_build',
+    'htmlcov',
+    'benchmarks',
+    'test_reports',
+    'rdflib.egg-info',
+    'buck-out',
+    'build',
+    'dist',
+    'venv',
+]
+
+[tool.black]
+line-length = "88"
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | \.var
+    | \.github
+    | _build
+    | htmlcov
+    | benchmarks
+    | test_reports
+    | rdflib.egg-info
+    | buck-out
+    | build
+    | dist
+    | venv
+  )/
+)
+'''

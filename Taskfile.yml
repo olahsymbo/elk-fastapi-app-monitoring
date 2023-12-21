@@ -1,0 +1,39 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the project with Poetry
+    cmds:
+      - poetry install
+
+  run:
+    desc: Run the FastAPI app with Uvicorn
+    cmds:
+      - poetry run uvicorn apis:app --host 0.0.0.0 --port 8000 --reload
+
+  lint:
+    desc: Run linting with Flake8
+    cmds:
+      - poetry run flake8 src
+
+  test:
+    desc: Run tests with Pytest
+    cmds:
+      - poetry run pytest tests
+
+  format:
+    desc: Format code with Black
+    cmds:
+      - poetry run black .
+      - poetry run isort
+  
+  check:
+    desc: Run code formatting check with Black
+    cmds:
+      - poetry run black --check .
+
+  clean:
+    desc: Clean up generated files
+    cmds:
+      - poetry run rm -rf __pycache__ .pytest_cache .coverage
+

@@ -1,12 +1,12 @@
 import os
 import random
-import logging 
-from typing import List 
+import logging
+from typing import List
 
 import uvicorn
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse 
- 
+from fastapi.responses import JSONResponse
+
 app = FastAPI()
 
 PORT = 8000
@@ -17,15 +17,15 @@ if not os.path.exists("../logs"):
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logging.StreamHandler()
-file_handler = logging.FileHandler("../logs/api.log")
+file_handler = logging.FileHandler("../logs/api_log.log")
 file_handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler) 
+logger.addHandler(file_handler)
+
 
 @app.post("/create_dummy")
 async def image_detect(request: Request):
-
     if request.method == "POST":
         json_result: List = []
         try:
