@@ -58,38 +58,55 @@ jobs:
       - name: Test with Pytest
         run: task test
 
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python and cache dependencies
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-          cache: pip
-      - name: Cache Poetry virtual environment
-        id: cache-poetry
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/pypoetry
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install poetry
-          poetry install
-        if: steps.cache-poetry.outputs.cache-hit != 'true'
-
-      - name: Run semantic-release
-        run: |
-          poetry run semantic-release publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+release:
+  needs: build
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      python-version: ["3.9"]
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install Poetry
+      run: pipx install poetry
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: "poetry"
+    - name: Install dependencies
+      run: poetry install
+    - name: Prepare package for release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name olahsymbo
+        git config user.email olahsymbo@github.com
+        poetry run semantic-release publish
+        # Extract the newly created version from the changelog
+        export NEW_VERSION=$(awk '/^##/ {print $2}' CHANGELOG.md | head -n 1)
+        # Create a lightweight tag for the new version
+        git tag $NEW_VERSION
+        # Push the tag to the repository
+        git push origin $NEW_VERSION
+    - name: Set up Git for release
+      run: |
+        git config user.name olahsymbo
+        git config user.email olahsymbo@github.com
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.create_tag.outputs.tag_name }}
+        release_name: Release ${{ steps.create_tag.outputs.tag_name }}
+        draft: false
+        prerelease: false
+    - name: Upload package to GitHub Packages
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+        docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ steps.create_tag.outputs.tag_name }} .
+        docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ steps.create_tag.outputs.tag_name }}
