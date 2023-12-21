@@ -2,6 +2,7 @@ repository:
   name: elasticsearch-logstash-kibana
   description: ELK and FastAPI
   topics: elasticsearch, logstash, kibana, python, fastapi, docker
+  default_branch: main
   allow_squash_merge: false
   allow_merge_commit: false
   allow_rebase_merge: true
