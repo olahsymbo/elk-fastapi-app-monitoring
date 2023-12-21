@@ -47,6 +47,10 @@ jobs:
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Install Task
+        run: |
+          curl -L https://taskfile.dev/install.sh | sh
+
       - name: Lint with task
         run: task format
 
