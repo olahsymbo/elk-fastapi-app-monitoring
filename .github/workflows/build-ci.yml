@@ -48,8 +48,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Install Task
-        run: |
-          curl -L https://taskfile.dev/install.sh | sh
+        uses: arduino/setup-task@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint with task
         run: task format
