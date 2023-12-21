@@ -1,7 +1,11 @@
-name: ObjectDetectionService
+name: ELK-FastAPI
 
 on:
   pull_request:
+
+  push:
+    branches:
+      - main 
 
 permissions:
   contents: write
