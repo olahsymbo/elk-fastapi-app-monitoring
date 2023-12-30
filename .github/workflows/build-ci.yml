@@ -107,5 +107,5 @@ jobs:
       - name: Upload package to GitHub Packages
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-          docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ steps.create_tag.outputs.tag_name }} .
-          docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ steps.create_tag.outputs.tag_name }}
+          docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:${{ env.TAG_NAME }} .
+          docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:${{ env.TAG_NAME }}
