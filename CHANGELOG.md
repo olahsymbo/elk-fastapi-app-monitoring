@@ -2,6 +2,13 @@
 
 
 
+## v0.1.1 (2023-12-30)
+
+### Chore
+
+* chore: release version ([`2dd0a22`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/2dd0a2290fa453ee698d46246e71c0ed627ac18d))
+
+
 ## v0.1.0 (2023-12-30)
 
 ### Feature
