@@ -58,6 +58,9 @@ jobs:
 
       - name: Test with Pytest
         run: task test
+      
+      - name: Build Dist
+        run: poetry build 
 
   release:
     needs: build
@@ -89,7 +92,7 @@ jobs:
           VERSION=$(poetry version | awk '{print $NF}')
           TAG_NAME=${VERSION#v}
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
-          poetry run semantic-release publish
+          poetry run semantic-release publish --tag $TAG_NAME
       - name: Set up Git for release
         run: |
           git config user.name github-actions
