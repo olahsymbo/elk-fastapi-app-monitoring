@@ -90,10 +90,9 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          VERSION=$(poetry version | awk '{print $NF}')
+          VERSION=$(poetry run semantic-release version | awk '{print $NF}')
           TAG_NAME=${VERSION#v}
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
-          poetry run semantic-release version
           poetry run semantic-release publish --tag $TAG_NAME
       - name: Set up Git for release
         run: |
