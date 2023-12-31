@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "elasticsearch-logstash-kibana"
-version = "2.0.0"
+version = "2.0.1"
 description = ""
 authors = ["olahsymbo <olahsymbo@gmail.com>"]
 packages = [{ include = "elasticsearch_logstash_kibana", from = "src"}]
