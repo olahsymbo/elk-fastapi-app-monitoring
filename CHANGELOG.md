@@ -2,6 +2,13 @@
 
 
 
+## v0.1.4 (2023-12-31)
+
+### Fix
+
+* fix: add version ([`7c5eae5`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/7c5eae5cecdf473b55d203a85dad7a70db713afa))
+
+
 ## v0.1.3 (2023-12-31)
 
 ### Fix
