@@ -9,7 +9,7 @@ tasks:
   run:
     desc: Run the FastAPI app with Uvicorn
     cmds:
-      - poetry run uvicorn apis:app --host 0.0.0.0 --port 8000 --reload
+      - poetry run uvicorn apps.app:app --host 0.0.0.0 --port 8000 --workers 4 --timeout-keep-alive 600
 
   lint:
     desc: Run linting with Flake8

@@ -93,6 +93,7 @@ jobs:
           VERSION=$(poetry version | awk '{print $NF}')
           TAG_NAME=${VERSION#v}
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          poetry run semantic-release version
           poetry run semantic-release publish --tag $TAG_NAME
       - name: Set up Git for release
         run: |
