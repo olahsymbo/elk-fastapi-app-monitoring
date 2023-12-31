@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["/bin/sh", "-c", "uvicorn apis:app --host 0.0.0.0 --port 8000 --workers 4 --timeout-keep-alive 600"]
+    command: ["/bin/sh", "-c", "uvicorn apps.app:app --host 0.0.0.0 --port 8000 --workers 4 --timeout-keep-alive 600"]
     ports:
       - '8000:8000'   
     depends_on:
@@ -15,7 +15,7 @@ services:
       - .env
     restart: always
     volumes:
-      - ./logs:/app/logs 
+      - ./logs:/elasticsearch-logstash-kibana/logs 
 
   db:
     image: postgres

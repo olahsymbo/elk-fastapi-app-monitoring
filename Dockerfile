@@ -6,9 +6,9 @@ RUN apt-get update \
     && apt-get install psmisc \
     && apt-get clean \
     && apt-get autoremove
-RUN mkdir /app
-WORKDIR /app
-COPY . /app
+RUN mkdir /elasticsearch-logstash-kibana
+WORKDIR /elasticsearch-logstash-kibana
+COPY . /elasticsearch-logstash-kibana
 RUN pip3 install --upgrade pip
 RUN pip install poetry
 RUN poetry config virtualenvs.create false \
