@@ -2,6 +2,21 @@
 
 
 
+## v0.1.2 (2023-12-31)
+
+### Chore
+
+* chore: add new endpoints ([`09d75e3`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/09d75e30d88e97e2665c6c7f5fcff718d1996f72))
+
+### Fix
+
+* fix: update readme ([`2db8bb8`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/2db8bb8941f79073e551ab1c8bf43e11ac430c7a))
+
+* fix: add build ([`1501afa`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/1501afaf3a013feb7f0dd3887b1104dcaff9e3b8))
+
+* fix: add build ([`211b975`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/211b975e2050918612ab41c25a4318017f1dd750))
+
+
 ## v0.1.1 (2023-12-30)
 
 ### Chore
