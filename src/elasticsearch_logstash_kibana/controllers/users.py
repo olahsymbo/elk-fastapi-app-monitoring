@@ -1,12 +1,11 @@
-import os
 import logging
+import os
 from uuid import uuid4
-
-from fastapi import APIRouter, Request, Depends
-from fastapi.responses import JSONResponse
 
 from elasticsearch_logstash_kibana.database.db import SessionLocal
 from elasticsearch_logstash_kibana.models.users import User
+from fastapi import APIRouter, Request
+from fastapi.responses import JSONResponse
 
 if not os.path.exists("./logs"):
     os.mkdir("./logs")
@@ -22,6 +21,7 @@ logger.addHandler(file_handler)
 
 router = APIRouter()
 
+
 @router.post("/create_user")
 async def create_user(request: Request):
     if request.method == "POST":
@@ -31,7 +31,7 @@ async def create_user(request: Request):
             db.add(user)
             db.commit()
             db.refresh(user)
-            logger.info([f'User {uuid4()} created successfully'])
+            logger.info([f"User {uuid4()} created successfully"])
             return JSONResponse(
                 {
                     "data": {"id": user.id, "name": user.name, "email": user.email},
@@ -60,7 +60,7 @@ async def get_user(user_id: int):
     db.close()
 
     if user:
-        logger.info([f'User {user_id} fetched'])
+        logger.info([f"User {user_id} fetched"])
         return JSONResponse(
             {
                 "data": {"id": user.id, "name": user.name, "email": user.email},
@@ -71,7 +71,7 @@ async def get_user(user_id: int):
             status_code=200,
         )
     else:
-        logger.error([f'User {user_id} not found'])
+        logger.error([f"User {user_id} not found"])
         return JSONResponse(
             {
                 "message": "User not found",
@@ -137,7 +137,7 @@ async def delete_user(user_id: int):
         db.commit()
         db.close()
 
-        logger.info([f'User {user_id} deleted'])
+        logger.info([f"User {user_id} deleted"])
 
         return JSONResponse(
             {
@@ -148,7 +148,7 @@ async def delete_user(user_id: int):
             status_code=200,
         )
     else:
-        logger.info([f'User {user_id} not found'])
+        logger.info([f"User {user_id} not found"])
         return JSONResponse(
             {
                 "message": "User not found",
