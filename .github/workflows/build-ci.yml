@@ -48,19 +48,14 @@ jobs:
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Install Task
-        uses: arduino/setup-task@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Lint with task
-        run: task format
+        run: make format
 
       - name: Test with Pytest
-        run: task test
+        run: make test
       
       - name: Build Dist
-        run: poetry build 
+        run: make build 
 
   release:
     needs: build
