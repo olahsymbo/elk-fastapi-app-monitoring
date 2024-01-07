@@ -2,6 +2,13 @@
 
 
 
+## v0.1.5 (2024-01-07)
+
+### Fix
+
+* fix: add makefile ([`20e2204`](https://github.com/olahsymbo/elasticsearch-logstash-kibana/commit/20e220425fabe17012287b0eeb4ad661a36530dc))
+
+
 ## v0.1.4 (2023-12-31)
 
 ### Fix
