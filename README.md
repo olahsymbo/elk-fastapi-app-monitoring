@@ -72,3 +72,5 @@ Docker Compose file: `docker-compose.yml`
    docker-compose up -d
    ```
 
+### Test
+- [Code Coverage Report](./coverage.xml)

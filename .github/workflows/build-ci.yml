@@ -52,7 +52,18 @@ jobs:
         run: make format
 
       - name: Test with Pytest
-        run: make test
+        run: |
+          make test
+          coverage xml -o coverage.xml
+
+      - name: Save coverage report locally
+        run: mv coverage.xml $GITHUB_WORKSPACE/coverage.xml
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: $GITHUB_WORKSPACE/coverage.xml
       
       - name: Build Dist
         run: make build 
