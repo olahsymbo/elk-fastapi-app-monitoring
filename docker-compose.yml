@@ -15,7 +15,7 @@ services:
       - .env
     restart: always
     volumes:
-      - ./logs:/elasticsearch-logstash-kibana/logs 
+      - ./logs:/elk-fastapi-app-monitoring/logs 
 
   db:
     image: postgres

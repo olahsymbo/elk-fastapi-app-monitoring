@@ -9,8 +9,8 @@ run:
 	@poetry run uvicorn apps.app:app --host 0.0.0.0 --port 8000 --workers 4 --timeout-keep-alive 600
 
 test:
-	@echo "Running tests with Pytest"
-	@poetry run mypy tests
+	@echo "Running tests with Coverage - Pytest"
+	@poetry run coverage run -m pytest && poetry run coverage report -m
 
 format:
 	@echo "Formatting code with Black"

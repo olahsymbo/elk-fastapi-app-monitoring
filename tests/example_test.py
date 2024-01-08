@@ -1,2 +1,2 @@
-def test_example_pytest():
+def test_example_empty():
     pass

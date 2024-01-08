@@ -29,8 +29,8 @@ Before starting, ensure you have the following installed:
 ### Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/olahsymbo/elasticsearch-logstash-kibana.git
-    cd your-repository
+    git clone https://github.com/olahsymbo/elk-fastapi-app-monitoring.git
+    cd elk-fastapi-app-monitoring
     ```
 
 2. Install the required Python packages using Poetry:

@@ -1,5 +1,5 @@
 repository:
-  name: elasticsearch-logstash-kibana
+  name: elk-fastapi-app-monitoring
   description: ELK and FastAPI
   topics: elasticsearch, logstash, kibana, python, fastapi, docker
   default_branch: main
