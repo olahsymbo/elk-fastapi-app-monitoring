@@ -2,6 +2,13 @@
 
 
 
+## v0.2.1 (2024-01-08)
+
+### Fix
+
+* fix: adjust github workspace ([`518a164`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/518a164162f2f71b3f9b7661ef8d700a4a05335f))
+
+
 ## v0.2.0 (2024-01-08)
 
 ### Feature
