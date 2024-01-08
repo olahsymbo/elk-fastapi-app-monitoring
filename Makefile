@@ -11,6 +11,7 @@ run:
 test:
 	@echo "Running tests with Coverage - Pytest"
 	@poetry run coverage run -m pytest && poetry run coverage report -m
+	@poetry run coverage xml -o coverage.xml
 
 format:
 	@echo "Formatting code with Black"

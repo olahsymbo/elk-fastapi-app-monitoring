@@ -54,7 +54,6 @@ jobs:
       - name: Test with Pytest
         run: |
           make test
-          coverage xml -o coverage.xml
 
       - name: Save coverage report locally
         run: mv coverage.xml $GITHUB_WORKSPACE/coverage.xml
