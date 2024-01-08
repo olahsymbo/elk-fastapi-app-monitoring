@@ -19,6 +19,7 @@ format:
 
 check:
 	@echo "Running code formatting check with Black"
+	@poetry run mypy .
 	@poetry run black --check .
 
 clean:
