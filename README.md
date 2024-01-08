@@ -17,7 +17,7 @@
    - [Running the App and ELK Stack](#running-elk-stack) 
 
 ## Introduction
-This repository contains the configuration files and setup for an ELK (Elasticsearch, Logstash, Kibana) stack along with a FastAPI app that implements a POST request method.
+This repository contains the configuration files and setup for an ELK (Elasticsearch, Logstash, Kibana) stack along with a FastAPI app that implements CRUD methods.
 
 ## Getting Started
 
