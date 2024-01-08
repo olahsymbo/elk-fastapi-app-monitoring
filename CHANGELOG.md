@@ -2,6 +2,13 @@
 
 
 
+## v0.2.0 (2024-01-08)
+
+### Feature
+
+* feat: add report ([`98dba67`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/98dba678f3e8b9ff45b30236b07b0aca72da6790))
+
+
 ## v0.1.7 (2024-01-08)
 
 
