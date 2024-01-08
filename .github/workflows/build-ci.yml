@@ -55,9 +55,6 @@ jobs:
         run: |
           make test
 
-      - name: Save coverage report locally
-        run: mv coverage.xml $GITHUB_WORKSPACE/coverage.xml
-
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v2
         with:
