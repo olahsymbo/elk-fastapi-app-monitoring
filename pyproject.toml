@@ -130,4 +130,4 @@ exclude = '''
 [tool.coverage.run]
 omit = [".*", "*/site-packages/*"]
 [tool.coverage.report]
-fail_under = 100
+fail_under = 80

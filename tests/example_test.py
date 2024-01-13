@@ -1,3 +1,5 @@
+import uuid
+import json
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
@@ -48,4 +50,15 @@ def test_get_user_incorrect(test_db):
     response = client.get("/get_user/2000")
     assert response.status_code == 404
     assert response.json()["message"] == "User not found"
+    assert response.json()["errors"] == None
+
+def test_update_user(test_db): 
+    name = str(uuid.uuid4())
+    payload = json.dumps({
+        "name": name,
+        "email": f"{name}@email.com"
+        })
+    response = client.put("/update_user/2", headers={}, data=payload)
+    assert response.status_code == 200
+    assert response.json()["message"] == "User updated successfully"
     assert response.json()["errors"] == None
