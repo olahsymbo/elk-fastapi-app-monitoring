@@ -2,6 +2,21 @@
 
 
 
+## v0.3.0 (2024-01-13)
+
+### Feature
+
+* feat: update user ([`4d7536d`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/4d7536d9605095443089a745a66c4c62883e0fc7))
+
+* feat: add $POSTGRES_HOST ([`bb8ac36`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/bb8ac3687b55484e9e70e7fe248b052b3777bc93))
+
+* feat: add env ([`f8f0346`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/f8f0346aec819823a405cacd9e5c74c8726cf9af))
+
+* feat: add declarative base ([`291b71b`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/291b71be3b19398931710ae5aa37819167622bee))
+
+* feat: add tests ([`bc0db12`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/bc0db12bf3ecb7c450585bf48b8811267dbb7e18))
+
+
 ## v0.2.2 (2024-01-11)
 
 
