@@ -2,11 +2,11 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
 from apps.app import app
-from src.elk_fastapi_app_monitoring.database.db import Base
 
-
+Base = declarative_base()
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
 engine = create_engine(
