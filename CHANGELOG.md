@@ -2,6 +2,17 @@
 
 
 
+## v0.4.0 (2024-01-13)
+
+### Feature
+
+* feat: nc ([`beb3434`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/beb3434a73aa4a5359ab4837901612eda3c0774b))
+
+* feat: nc ([`4b5ce3c`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/4b5ce3c8ddb921f90c157d90c6b1a1939f1a1728))
+
+* feat: nc ([`461ae47`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/461ae47e962e290bc22962472c3b0a4edc42f3e2))
+
+
 ## v0.3.0 (2024-01-13)
 
 ### Feature
