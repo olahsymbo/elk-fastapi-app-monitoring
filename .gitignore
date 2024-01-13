@@ -130,6 +130,7 @@ tmp
 *.png
 *.jpg
 *.tiff
+*.db
 
 # dirs
 !docs/assets/*.png
