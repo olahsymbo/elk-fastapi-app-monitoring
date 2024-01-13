@@ -131,4 +131,5 @@ tmp
 *.jpg
 *.tiff
 
-# scripts
+# dirs
+!docs/assets/*.png

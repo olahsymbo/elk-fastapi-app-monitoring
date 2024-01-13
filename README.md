@@ -72,5 +72,8 @@ Docker Compose file: `docker-compose.yml`
    docker-compose up -d
    ```
 
-### Test
-- [Code Coverage Report](./coverage.xml)
+### ELK Output
+
+Here is kibana dashboard showing the logs:
+
+![Kibana Page](docs/assets/kibana.png)

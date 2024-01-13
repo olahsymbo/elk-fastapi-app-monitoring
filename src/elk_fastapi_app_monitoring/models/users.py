@@ -1,4 +1,4 @@
-from elasticsearch_logstash_kibana.database.db import Base, engine
+from src.elk_fastapi_app_monitoring.database.db import Base, engine
 from sqlalchemy import Column, Integer, Sequence, String
 
 

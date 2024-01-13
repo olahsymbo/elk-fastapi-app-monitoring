@@ -2,8 +2,8 @@ import logging
 import os
 from uuid import uuid4
 
-from elasticsearch_logstash_kibana.database.db import SessionLocal
-from elasticsearch_logstash_kibana.models.users import User
+from src.elk_fastapi_app_monitoring.database.db import SessionLocal
+from src.elk_fastapi_app_monitoring.models.users import User
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 

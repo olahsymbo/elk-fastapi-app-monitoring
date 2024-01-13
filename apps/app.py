@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from elasticsearch_logstash_kibana.controllers.users import router
+from src.elk_fastapi_app_monitoring.controllers.users import router
 from fastapi import Depends, FastAPI
 
 load_dotenv()

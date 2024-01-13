@@ -23,6 +23,9 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_PORT: ${DB_PORT}
+    ports:
+      - "5432:${DB_PORT}"
     restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
@@ -38,14 +41,14 @@ services:
       - http.cors.allow-origin=*
       - network.host=_eth0_
       - xpack.security.enabled=false
+      - discovery.type=single-node
     ulimits:
-      nproc: 65535
       memlock:
         soft: -1
         hard: -1
     volumes:
       - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
-      - elasticsearch_data:/usr/share/elasticsearch/data
+      # - elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
 
@@ -61,7 +64,7 @@ services:
       - elasticsearch
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.6.0 
+    image: docker.elastic.co/kibana/kibana:7.6.0
     ports:
       - "5601:5601"
     depends_on:
