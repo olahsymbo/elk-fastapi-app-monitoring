@@ -16,6 +16,17 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: admin1
+          POSTGRES_PASSWORD: admin1
+          POSTGRES_DB: user_mgt
+        ports:
+          - 5432:5432
+
     strategy:
       matrix:
         python-version: ["3.9"]
@@ -26,7 +37,7 @@ jobs:
       - name: Create env file 
         run: |
           touch .env
-          echo DB_CONNECTION_STRING=${{ secrets.DB_CONNECTION_STRING }} >> .env
+          echo DB_CONNECTION_STRING="postgresql://admin1:admin1@db/user_mgt" >> .env
 
       - name: Install Poetry
         run: pipx install poetry
