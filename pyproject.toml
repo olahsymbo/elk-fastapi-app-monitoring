@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "elk-fastapi-app-monitoring"
-version = "2.0.2"
+version = "0.1.0"
 description = ""
 authors = ["olahsymbo <olahsymbo@gmail.com>"]
 packages = [{ include = "elk_fastapi_app_monitoring", from = "src"}]

@@ -54,7 +54,7 @@ Before starting, ensure you have the following installed:
 ## FastAPI App
 
 ### API Implementation
-The FastAPI app is implemented in `apis/app.py` and includes a POST request method.
+The FastAPI app is implemented in `apis/app.py` and includes a POST | GET | PUT | DELETE request methods.
 
 ### Docker Configuration
 Dockerfile for FastAPI app: `Dockerfile`
