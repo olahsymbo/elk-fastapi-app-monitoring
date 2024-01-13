@@ -37,7 +37,7 @@ jobs:
       - name: Create env file 
         run: |
           touch .env
-          echo DB_CONNECTION_STRING="postgresql://admin1:admin1@db/user_mgt" >> .env
+          echo DB_CONNECTION_STRING="postgresql://admin1:admin1@$POSTGRES_HOST/user_mgt" >> .env
 
       - name: Install Poetry
         run: pipx install poetry
