@@ -58,7 +58,7 @@ def test_update_user(test_db):
         "name": name,
         "email": f"{name}@email.com"
         })
-    response = client.put("/update_user/2", headers={}, data=payload)
+    response = client.put("/update_user/1", headers={}, data=payload)
     assert response.status_code == 200
     assert response.json()["message"] == "User updated successfully"
     assert response.json()["errors"] == None
