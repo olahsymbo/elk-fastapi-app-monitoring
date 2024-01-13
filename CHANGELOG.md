@@ -2,6 +2,17 @@
 
 
 
+## v0.4.1 (2024-01-13)
+
+### Chore
+
+* chore: update readme ([`1af24c4`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/1af24c4e1ea7e330d7edc2456921c908777fae0a))
+
+### Fix
+
+* fix: rm elasticsearch data ([`c626b26`](https://github.com/olahsymbo/elk-fastapi-app-monitoring/commit/c626b26a36e256f8feaa8129294a34d3db3e52c6))
+
+
 ## v0.4.0 (2024-01-13)
 
 ### Feature
