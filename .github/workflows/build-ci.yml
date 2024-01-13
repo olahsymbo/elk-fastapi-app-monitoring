@@ -22,8 +22,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Create env file 
+        run: |
+          touch .env
+          echo DB_CONNECTION_STRING=${{ secrets.DB_CONNECTION_STRING }} >> .env
+
       - name: Install Poetry
         run: pipx install poetry
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
