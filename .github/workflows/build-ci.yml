@@ -21,9 +21,9 @@ jobs:
       db:
         image: postgres:latest
         env:
-          POSTGRES_USER: admin1
-          POSTGRES_PASSWORD: admin1
-          POSTGRES_DB: user_mgt
+          POSTGRES_USER: {{ secret.POSTGRES_USER }}
+          POSTGRES_PASSWORD: {{ secret.POSTGRES_PASSWORD }}
+          POSTGRES_DB: {{ secret.POSTGRES_DB }}
         ports:
           - 5432:5432
 
@@ -37,7 +37,7 @@ jobs:
       - name: Create env file 
         run: |
           touch .env
-          echo DB_CONNECTION_STRING="postgresql://admin1:admin1@localhost:5432/user_mgt" >> .env
+          echo DB_CONNECTION_STRING={{ secret.DB_CONNECTION_STRING }} >> .env
 
       - name: Install Poetry
         run: pipx install poetry
